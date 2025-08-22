@@ -11,7 +11,7 @@ const SalesRepTable = ({ salesData, searchTerm, filterStatus, openFeedbackPopup 
 
   const filteredSalesData = salesData.filter(salesman => {
     const matchesSearch = salesman.salesmanName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         salesman.email.toLowerCase().includes(searchTerm.toLowerCase());
+                         salesman.salesmanEmail.toLowerCase().includes(searchTerm.toLowerCase());
     
     if (filterStatus === 'all') return matchesSearch;
     if (filterStatus === 'high') return matchesSearch && salesman.performance >= 85;
@@ -70,7 +70,7 @@ const SalesRepTable = ({ salesData, searchTerm, filterStatus, openFeedbackPopup 
                         </div>
                         <div className="flex items-center text-xs text-gray-600 mt-1">
                           <Mail className="w-3 h-3 mr-1" />
-                          {salesman.email}
+                          {salesman.salesmanEmail}
                         </div>
                       </div>
                     </div>
